@@ -1,9 +1,8 @@
 package org.example.hibernate1;
 
-import org.example.hibernate1.entities.Car;
-import org.example.hibernate1.entities.CarType;
-import org.example.hibernate1.entities.Owner;
-import org.example.hibernate1.entities.Word;
+import java.util.List;
+import java.util.logging.Level;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -11,8 +10,10 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import java.util.List;
-import java.util.logging.Level;
+import org.example.hibernate1.entities.Car;
+import org.example.hibernate1.entities.CarType;
+import org.example.hibernate1.entities.Owner;
+import org.example.hibernate1.entities.Word;
 
 /*
 використовуючи hibernate:
@@ -68,12 +69,12 @@ public class Main {
         session.beginTransaction();
 
         Word word1 = new Word("Word 1");
-        Word word2 = new Word("Word 1");
-        Word word3 = new Word("Word 1");
+        Word word2 = new Word("Word 2");
+        Word word3 = new Word("Word 3");
 
-        session.save(word1);
-        session.save(word2);
-        session.save(word3);
+        session.persist(word1);
+        session.persist(word2);
+        session.persist(word3);
 
         session.getTransaction().commit();
 
@@ -89,9 +90,9 @@ public class Main {
         Car car2 = new Car("VOLVO", CarType.Sedan, 220, 25000.0, 2011);
         Car car3 = new Car("MAZDA", CarType.Coupe, 180, 17000.0, 2017);
 
-        session.save(new Owner("Vasya", car1));
-        session.save(new Owner("Petya", car2));
-        session.save(new Owner("Olya", car3));
+        session.persist(new Owner("Vasya", car1));
+        session.persist(new Owner("Petya", car2));
+        session.persist(new Owner("Olya", car3));
 
         session.getTransaction().commit();
 

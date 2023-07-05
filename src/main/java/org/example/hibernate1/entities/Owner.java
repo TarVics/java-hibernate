@@ -5,8 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.SourceType;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import java.io.Serializable;
+import java.util.Date;
 
 @Entity
 @NoArgsConstructor
@@ -23,6 +27,16 @@ public class Owner implements Serializable {
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "car_id", referencedColumnName = "id")
     private Car car;
+
+    @Column(name = "created_at")
+    @CreationTimestamp(source = SourceType.DB)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdAt;
+
+    @Column(name = "updated_at")
+    @UpdateTimestamp(source = SourceType.DB)
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
 
     public Owner(String name, Car car) {
         this.name = name;
