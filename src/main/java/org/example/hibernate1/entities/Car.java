@@ -29,6 +29,7 @@ public class Car implements Serializable {
     private Double price;
     private int year;
 
+/*
     @Column(name = "created_at")
     @CreationTimestamp(source = SourceType.DB)
     @Temporal(TemporalType.TIMESTAMP)
@@ -38,6 +39,7 @@ public class Car implements Serializable {
     @UpdateTimestamp(source = SourceType.DB)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
+*/
 
     public Car(String model, CarType type, int power, Double price, int year) {
         this.model = model;

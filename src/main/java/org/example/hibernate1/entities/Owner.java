@@ -28,6 +28,7 @@ public class Owner implements Serializable {
     @JoinColumn(name = "car_id", referencedColumnName = "id")
     private Car car;
 
+/*
     @Column(name = "created_at")
     @CreationTimestamp(source = SourceType.DB)
     @Temporal(TemporalType.TIMESTAMP)
@@ -37,6 +38,7 @@ public class Owner implements Serializable {
     @UpdateTimestamp(source = SourceType.DB)
     @Temporal(TemporalType.TIMESTAMP)
     private Date updatedAt;
+*/
 
     public Owner(String name, Car car) {
         this.name = name;

@@ -99,6 +99,15 @@ public class Main {
         List<Owner> resultList = session.createQuery("select owner from Owner owner", Owner.class).getResultList();
         System.out.println(resultList);
 
+        System.out.println("***********");
+        List<Car> carList = session.createQuery(
+                        "select c from Car c where c.power = :power",
+                        Car.class
+                )
+                .setParameter("power", 320)
+                .getResultList();
+        System.out.println(carList);
+
     }
 
     public static void main(String[] args) {
